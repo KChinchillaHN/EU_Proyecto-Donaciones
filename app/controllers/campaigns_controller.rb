@@ -18,6 +18,7 @@ class CampaignsController < ApplicationController
     @campaign = @user.campaigns.build(campaign_params)
     @campaign.user = current_user
     if @campaign.save 
+      UserMailer.new_campaign_notification(@user, @campaign).deliver
       redirect_to campaigns_path, notice: "La Campaña se agrego exitosamente" 
     else
       flash[:error] = "No se pudo registrar la campaña, Favor corregir los siguientes errores: "
