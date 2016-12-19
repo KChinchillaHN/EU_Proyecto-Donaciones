@@ -1,0 +1,31 @@
+<div class="container marketing">
+  <h1 class="page-header">
+  	Campañas Disponibles
+  </h1>
+
+<% if flash[:notice] %>
+	<div class="alert alert-danger" role="alert">
+		<%= flash[:notice] %>
+	</div>
+<% end %>
+
+<table border="2" class="table table-hover table-bordered">
+	<thead>
+		<tr>
+			<th>Titulo</th>
+			<th>Reseña</th>
+			<th>Categoria</th>
+			<th>Meta</th>
+			<th>Monto Donado</th>
+			<th>Creado en</th>
+			<th>Nombre de Usuario</th>
+		</tr>
+	</thead>
+	<tbody>
+		<%= render @campaigns %>
+	</tbody>
+</table>
+
+<div class="btn-group" role="group">
+	<%= link_to "Agregar Campaña", new_campaign_path, class: "btn btn-primary" %>
+</div>
