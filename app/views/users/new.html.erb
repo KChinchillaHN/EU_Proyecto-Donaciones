@@ -1,0 +1,21 @@
+<div class="container marketing">
+  <h1 class="page-header">
+  	Crear Usurio
+  </h1>
+  <p>
+  	Ingrese los siguientes datos: 
+  </p>
+
+	<%= render partial: "shared/errors", locals: { obj: @author } %>
+
+	<%= form_for @author do |f| %>
+		<%= render partial: "form", locals: {f: f} %>
+
+	<div class="btn-group" role="group" aria-label="Acciones">
+		<%= button_tag(type: 'submit', class: "btn btn-default") do %>
+				<i class="icon-ok icon-white"></i> Crear Autor
+	<% end %>
+			<%= link_to "Cancelar", login_path, class: "btn btn-default"%>
+	<%- end %>
+	</div>
+</div>
