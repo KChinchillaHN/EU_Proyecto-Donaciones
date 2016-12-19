@@ -1,0 +1,22 @@
+<div class="container marketing">
+  <h1 class="page-header">
+  	Crear Campaña
+  </h1>
+  <p>
+  	Ingrese los siguientes datos: 
+  </p>
+
+<%= render partial: "shared/errors", locals: {obj: @campaign} %>
+
+<%= form_for @campaign do |f| %>
+	<%= render partial: "form", locals: {f: f} %>
+
+<div class="btn-group" role="group" aria-label="Acciones">
+  <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+      <span class="fa fa-check-circle-o"></span>
+      	Crear Campaña
+<% end %>
+    <%= link_to "Cancelar", campaigns_path, class: "btn btn-danger"%>
+
+<%- end %>
+</div>

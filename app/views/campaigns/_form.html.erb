@@ -1,0 +1,28 @@
+<div class="form-group">
+	<%= f.label :title, "Titulo: " %>
+	<%= f.text_field :title, class: "form-control"%>
+</div>
+<div class="form-group">
+	<%= f.label :review, "Reseña: " %>
+	<%= f.text_area :review, class: "form-control"%>
+</div>
+<div class="form-group">
+	<%= f.label :description, "Descripcion: " %>
+	<%= f.text_area :description, class: "form-control"%>
+</div>
+<div class="form-group">
+	<%= f.label :goal, "Meta: " %>
+	<%= f.number_field :goal, class: "form-control"%>
+</div>
+<div class="form-group">
+	<%= f.label :category, "Categoria: " %>
+	<%= f.select :category, Campaign.campaigns_categories, {}, class: "form-control"%>
+</div>
+<div class="form-group">
+	<%= f.label :image_url, "Imagen: " %>
+	<%= f.url_field :image_url, class: "form-control"%>
+</div>
+<div class="form-group">
+	<%= f.label :end_date, "Fecha Finalizacion: " %>
+	<%= f.date_field :end_date, class: "form-control"%>
+</div>

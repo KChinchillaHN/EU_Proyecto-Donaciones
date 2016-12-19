@@ -1,6 +1,10 @@
+<div class="item active">
+  <%= image_tag "CAMPAIGNS_Medical.jpg" %>
+</div>
+
 <div class="container marketing">
   <h1 class="page-header">
-  	Campañas Disponibles
+  	Campañas Medicas
   </h1>
 
 <% if flash[:notice] %>
@@ -27,5 +31,5 @@
 </table>
 
 <div class="btn-group" role="group">
-	<%= link_to "Agregar Campaña", new_campaign_path, class: "btn btn-primary" %>
+	<%= link_to "Agregar Campaña", new_campaign_path, class: "btn btn-default" %>
 </div>

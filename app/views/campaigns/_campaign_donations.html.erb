@@ -1,0 +1,17 @@
+<% if donations.any? %>
+	<div>
+	<table border="2" class="table table-hover table-bordered">
+		<thead>
+			<th>Autor</th>
+			<th>Comentario</th>
+			<th>Cantidad</th>
+			<th>Fecha</th>
+		</thead>
+		<tbody>
+			<%= render donations %>
+		</tbody>
+	</table>
+	</div>
+<% else %>
+	<p align="center"><em>No se han efectuado donaciones aun, Se el primero en Donar</em></p>
+<% end %>

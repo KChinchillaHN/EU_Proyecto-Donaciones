@@ -1,0 +1,9 @@
+<tr>
+	<td><%= link_to campaign.title, campaign %></td>
+	<td><%= campaign.review %></td>
+	<td><%= campaign.category %></td>
+	<td><b>HNL. </b><%= campaign.goal %></td>
+	<td><b>HNL. </b><%= campaign.goal %></td>
+	<td><%= nice_date(campaign.created_at) %></td>
+	<td><%= User.find(campaign.user_id).name %></td>
+<tr>

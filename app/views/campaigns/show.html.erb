@@ -1,0 +1,63 @@
+<div class="container marketing">
+  <h1 align="center">
+  	<%= @campaign.title %>
+  </h1>
+  <p style="color:#a9a9a9;" align="center">
+  	<%= @campaign.review %>
+  </p>
+  <p style="color:#a9a9a9;" align="center">
+    Ver otras Campañas de: <%= link_to @campaign.category, campaigns_path%>
+  </p>
+<hr>
+  <div class="row"> 
+    <div class="col-md-6 col-xs-6"> 
+      <a href="#" class="thumbnail"> <img alt="100%x180" data-src="holder.js/100%x180" style="height: 250px; width: 100%; display: block;" src=<%= @campaign.image_url %> data-holder-rendered="true"> 
+      </a> 
+    </div>
+    <div class="col-md-3 col-xs-6"> 
+    <h1 align="center"> HNL. <%= @campaign.goal %> </h1>
+    <p> Meta </p>
+    </div>
+   </div>
+
+   <div class="progress">
+  <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: <%= Campaign.campaign_complete %>%">
+  	<span class="sr-only"></span>
+	</div>
+</div>
+
+  <div class="row"> 
+    <div class="col-md-6 col-xs-6"> 
+    	<h1 align="center"> Nuestro Equipo </h1>
+      <hr>
+    	<h3> <%= @campaign.user.name %> </h3>
+      <p> Nombre </p>
+      <h3> <%= @campaign.user.country %> </h3>
+      <p> Pais </p>
+      <h3> <%= @campaign.user.city %> </h3>
+      <p> Ciudad </p>
+      <h3> <%= @campaign.user.email %> </h3>
+      <p> Correo </p>
+    </div>
+
+    <div class="col-md-3 col-xs-6">
+      <h1 align="center"> Opciones </h1>
+      <hr> 
+      <p align="center"><%= link_to "Crear un Comentario", new_campaign_comment_path(@campaign), class: "btn btn-default" %></p>
+      <p align="center"><%= link_to "Realizar una Donacion", new_campaign_donation_path(@campaign), class: "btn btn-default" %></p>
+    </div>
+  </div>
+
+<hr>
+  <h1 align="center">
+    Comentarios sobre la Campaña
+  </h1>
+  
+  <%= render partial: "campaign_comments", locals: {comments: @campaign.comments} %>
+  
+  <h1 align="center">
+    Donaciones a la Campaña
+  </h1>
+
+  <%= render partial: "campaign_donations", locals: {donations: @campaign.donations} %>
+</div>

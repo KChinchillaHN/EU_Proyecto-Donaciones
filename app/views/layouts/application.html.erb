@@ -36,6 +36,111 @@
                     Inicio
                   <% end %>
                 </li>
+
+
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Campañas <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <%= link_to campaigns_path do %>
+                      <span class="fa fa-asterisk "></span> 
+                      Todas
+                      <% end %>
+                    </li>
+                    <li role="separator" class="divider"></li>
+                    <li class="dropdown-header">Por categoria</li>
+                    <li>
+                      <%= link_to category_animales_path do %>
+                      <span class="fa fa-linux"></span> 
+                        Animales
+                      <% end %>
+                    </li>
+                    <li>
+                      <%= link_to category_caridades_path do %>
+                      <span class="fa fa-bullhorn "></span> 
+                        Caridad
+                      <% end %>
+                    </li>
+                    <li>
+                      <%= link_to category_deportes_path do %>
+                      <span class="fa fa-futbol-o"></span> 
+                        Deportes
+                      <% end %>
+                    </li>
+                    <li>
+                      <%= link_to category_medicas_path do %>
+                      <span class="fa fa-heartbeat"></span> 
+                        Medicas
+                      <% end %>
+                    </li>
+                    <li>
+                      <%= link_to category_negocios_path do %>
+                      <span class="fa fa-suitcase"></span> 
+                        Negocios
+                      <% end %>
+                    </li>
+                  </ul>
+                </li>
+
+
+                <% if current_user %>
+                <li>
+                  <%= link_to campaigns_user_path(current_user) do %>
+                    <span class="fa fa-tachometer"></span> 
+                    Dashboard
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to new_campaign_path do %>
+                    <span class="fa fa-child"></span> 
+                    Nueva Campaña
+                  <% end %>
+                </li>
+
+                  <li class="dropdown active ">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Bienvenido, <%= current_user.name %> <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <%= link_to logout_path do %>
+                      <span class="fa fa-sign-out"></span> 
+                      Cerrar Sesion
+                      <% end %>
+                    </li>
+
+                    <li role="separator" class="divider"></li>
+                    <li class="dropdown-header">Perfil</li>
+                    <li>
+                      <%= link_to root_path do %>
+                      <span class="fa fa-user"></span> 
+                        Ver Perfil
+                      <% end %>
+                    </li>
+                    <li>
+                      <%= link_to root_path do %>
+                      <span class="fa fa-pencil-square-o"></span> 
+                         Editar Perfil
+                      <% end %>
+                    </li>
+                    <li>
+                      <%= link_to root_path do %>
+                      <span class="fa fa-ellipsis-h "></span> 
+                        Cambiar Contraseña
+                      <% end %>
+                    </li>
+
+                    <li role="separator" class="divider"></li>
+                    <li class="dropdown-header">Comunicate con nosotros</li>
+                    <li>
+                      <%= link_to root_path do %>
+                      <span class="fa fa-envelope"></span> 
+                        Contactanos
+                      <% end %>
+                    </li>
+                  </ul>
+                </li>
+
+
+                <% else %>
                 <li class="dropdown active ">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Autenticacion <span class="caret"></span></a>
                   <ul class="dropdown-menu">
@@ -46,7 +151,7 @@
                       <% end %>
                     </li>
                     <li>
-                      <%= link_to root_path do %>
+                      <%= link_to new_user_path do %>
                       <span class="fa fa-address-card-o"></span> 
                       Crear Usuario
                       <% end %>
@@ -61,7 +166,7 @@
                     </li>
                   </ul>
                 </li>
-
+                <% end %>
               </ul>
             </div>
           </div>
@@ -72,7 +177,7 @@
 
     <hr>
     <footer>
-      <p>2016. Experiencia de Usuario - UNITEC SPS</p>
+      <p> UNITEC SPS -Experiencia de Usuario - Kevin Chinchilla / Rudy Cardona - Diciembre 2016 </p>
     </footer>
       </div>
     </div>

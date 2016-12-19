@@ -7,13 +7,25 @@ EuDonation::Application.routes.draw do
   root 'welcome#index'
 
   resources :campaigns
-  resources :comments
-  resources :donations
-  resources :users
+  
+  resources :campaigns do
+    resources :comments
+    resources :donations
+  end
+
+  resources :users do
+    get :campaigns, on: :member
+  end
    
   get "/login" => "sessions#new"
   post "/login" => "sessions#create"
   delete "/logout" => "sessions#destroy"
+
+  get "/category/medicas"    => "campaigns#category_1"
+  get "/category/deportes"   => "campaigns#category_2"
+  get "/category/animales"   => "campaigns#category_3"
+  get "/category/negocios"   => "campaigns#category_4"
+  get "/category/caridades"  => "campaigns#category_5"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

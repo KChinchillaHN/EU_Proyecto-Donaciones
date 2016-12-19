@@ -1,0 +1,20 @@
+  <h1 class="page-header">
+  	Crear Donacion
+  </h1>
+  <p>
+  	Ingrese los siguientes datos: 
+  </p>
+
+<%= render partial: "shared/errors", locals: { obj: @donation } %>
+
+<%= form_for [@campaign, @donation] do |f| %>
+	<%= render partial: "form", locals: {f: f} %>
+	
+	<div class="btn-group" role="group" aria-label="Acciones">
+		<%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+			<i class="icon-ok icon-white"></i> Crear Donacion
+	<% end %>
+
+	<%= link_to "Cancelar", @campaign, class: "btn btn-danger" %>
+<%- end %>
+</div>

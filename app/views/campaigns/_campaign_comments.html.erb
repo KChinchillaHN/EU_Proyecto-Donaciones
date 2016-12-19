@@ -1,0 +1,16 @@
+<% if comments.any? %>
+	<div>
+	<table border="2" class="table table-hover table-bordered">
+		<thead>
+			<th>Autor</th>
+			<th>Comentario</th>
+			<th>Fecha</th>
+		</thead>
+		<tbody>
+			<%= render comments %>
+		</tbody>
+	</table>
+	</div>
+<% else %>
+	<p align="center"><em>No se han efectuados comentarios aun, Se el primero en Comentar</em></p>
+<% end %>
