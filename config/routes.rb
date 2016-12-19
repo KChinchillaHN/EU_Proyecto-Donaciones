@@ -7,6 +7,7 @@ EuDonation::Application.routes.draw do
   root 'welcome#index'
 
   resources :campaigns
+  resources :comments
   
   resources :campaigns do
     resources :comments
@@ -16,7 +17,10 @@ EuDonation::Application.routes.draw do
   resources :users do
     get :campaigns, on: :member
   end
-   
+  
+  get "/profile" => "users#show"
+  get "/edit_profile" => "users#edit"
+
   get "/login" => "sessions#new"
   post "/login" => "sessions#create"
   delete "/logout" => "sessions#destroy"

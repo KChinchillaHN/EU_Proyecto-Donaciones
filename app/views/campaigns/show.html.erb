@@ -17,11 +17,13 @@
     <div class="col-md-3 col-xs-6"> 
     <h1 align="center"> HNL. <%= @campaign.goal %> </h1>
     <p> Meta </p>
+    <h1 align="center"> HNL. <%= @campaign.sum_of_donations %> </h1>
+    <p> Donado hasta Ahora </p>
     </div>
    </div>
 
    <div class="progress">
-  <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: <%= Campaign.campaign_complete %>%">
+  <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: <%=((@campaign.sum_of_donations / @campaign.goal)*100)%>%">
   	<span class="sr-only"></span>
 	</div>
 </div>
@@ -45,6 +47,9 @@
       <hr> 
       <p align="center"><%= link_to "Crear un Comentario", new_campaign_comment_path(@campaign), class: "btn btn-default" %></p>
       <p align="center"><%= link_to "Realizar una Donacion", new_campaign_donation_path(@campaign), class: "btn btn-default" %></p>
+      <% if @campaign.user_id = current_user.id %>
+        <p align="center"><%= link_to "Editar Campaña", edit_campaign_path, class: "btn btn-default" %></p>
+      <% end %>
     </div>
   </div>
 

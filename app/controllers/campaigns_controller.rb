@@ -1,8 +1,8 @@
 class CampaignsController < ApplicationController
   skip_before_action :authenticate, only: [:index]
   def index
-  	#  	@campaigns = Campaign.where(:goal <= ).order("created_on DESC")
-  	@campaigns = Campaign.order(:created_at)
+  	#@campaigns = Campaign.where(:goal <= Campaign.sum_of_donations).order("created_on DESC")
+  	 @campaigns = Campaign.order(:created_at)
   end
 
   def show
@@ -20,8 +20,21 @@ class CampaignsController < ApplicationController
     if @campaign.save 
       redirect_to campaigns_path, notice: "La Campaña se agrego exitosamente" 
     else
-      flash[:error] = "No se pudo registrar el libro, Favor corregir los siguientes errores: "
+      flash[:error] = "No se pudo registrar la campaña, Favor corregir los siguientes errores: "
       render :new
+    end
+  end
+
+  def edit
+    @campaign = Campaign.find(params[:id])
+  end
+
+  def update
+    @campaign = Campaign.find(params[:id])
+    if @campaign.update_attributes(campaign_params)
+      redirect_to campaigns_path, notice: "La campaña se actualizo correctamente."
+    else
+      render :edit
     end
   end
 
