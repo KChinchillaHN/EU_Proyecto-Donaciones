@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hola <%= @user.name %></h1>
+    <hr>
+    <h2>Se ha efectuado en nuevo comentario en tu Campaña: <%= @campaign.title %> </h2>
+    
+    <p> <b>ID del comentario: </b> <%= @comment.id %></p> 
+    <p> <b>Autor: </b> <%= @comment.author %></p> 
+    <p> <b>Comentario: </b> <%= @comment.message %></p> 
+
+    <hr>
+    <p>Eso es todo por ahora, Que tengas un excelente dia</p>
+  </body>
+</html>

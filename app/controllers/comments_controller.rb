@@ -10,6 +10,7 @@ class CommentsController < ApplicationController
   	@campaign.user = current_user
     @user = current_user
     if @comment.save
+      UserMailer.new_comment_notification(@user, @comment, @campaign).deliver
   		redirect_to @campaign
   	else
   		render :new
