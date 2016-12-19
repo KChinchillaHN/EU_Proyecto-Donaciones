@@ -16,6 +16,6 @@ class UserMailer < ActionMailer::Base
 
   def welcome_email(user)
     @user = user
-    mail(to: @user.email, subject: 'Bienvenido a la Familia Veterinaria')
+    mail(to: @user.email, subject: 'Bienvenido a la Familia #makeithappenhn')
   end
 end
