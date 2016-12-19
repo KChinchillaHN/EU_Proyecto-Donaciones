@@ -13,4 +13,9 @@ class UserMailer < ActionMailer::Base
     @campaign = campaign
     mail(to: @user.email, subject: 'Han efectuado una donacion en tu campaña')
   end
+
+  def welcome_email(user)
+    @user = user
+    mail(to: @user.email, subject: 'Bienvenido a la Familia Veterinaria')
+  end
 end

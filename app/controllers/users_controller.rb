@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 	def create
 		@user = User.new(user_params)
   	if @user.save 
+      UserMailer.welcome_email(@user).deliver
   		redirect_to login_path, notice: "El Usuario se agrego exitosamente" 
   	else
   		flash[:error] = "No se pudo registrar el usuario, Favor corregir los siguientes errores: "
