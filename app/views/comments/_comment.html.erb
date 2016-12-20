@@ -2,7 +2,7 @@
 	<td><%= comment.author %></td>
 	<td><%= comment.message %></td>
 	<td><%= nice_date(comment.created_at) %></td>
-	<% if comment.campaign.user_id = current_user.id %>
+	<% if comment.campaign.user_id == current_user.id %>
 	<td><%= link_to "Eliminar", comment, method: :delete, data: {confirm: "Estas Seguro?"}  %> </td>
 	<% end %>
 </tr>
