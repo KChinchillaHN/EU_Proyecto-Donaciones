@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
 
   def login(user)
     session[:user_id] = user.id
-    redirect_to campaigns_path
+    redirect_to campaigns_user_path(current_user)
   end
 
   def logout
@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-  if session[:user_id]
+    if session[:user_id]
       @current_user = User.find(session[:user_id])
     end
   end

@@ -33,6 +33,7 @@ class CampaignsController < ApplicationController
   def update
     @campaign = Campaign.find(params[:id])
     if @campaign.update_attributes(campaign_params)
+      UserMailer.edit_campaign_notification(@user, @campaign).deliver
       redirect_to campaigns_path, notice: "La campaña se actualizo correctamente."
     else
       render :edit

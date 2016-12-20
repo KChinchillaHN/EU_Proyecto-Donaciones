@@ -14,6 +14,18 @@ class UserMailer < ActionMailer::Base
     mail(to: @user.email, subject: 'Han efectuado una donacion en tu campaña')
   end
 
+  def new_campaign_notification(user, campaign)
+    @user = user
+    @campaign = campaign
+    mail(to: @user.email, subject: 'Se ha creado una campaña')
+  end
+
+  def edit_campaign_notification(user, campaign)
+    @user = user
+    @campaign = campaign
+    mail(to: @user.email, subject: 'Han efectuado una donacion en tu campaña')
+  end
+
   def welcome_email(user)
     @user = user
     mail(to: @user.email, subject: 'Bienvenido a la Familia #makeithappenhn')
