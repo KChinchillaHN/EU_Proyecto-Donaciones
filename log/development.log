@@ -55409,3 +55409,594 @@ Processing by CampaignsController#show as HTML
   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
   [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
 Completed 200 OK in 448ms (Views: 418.4ms | ActiveRecord: 25.9ms)
+
+
+Started GET "/campaigns/1" for 10.0.2.2 at 2016-12-20 01:21:23 +0000
+Processing by CampaignsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (3.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCampaign Load (2.7ms)[0m  SELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (4.5ms)[0m  [1mSELECT SUM("donations"."amount") FROM "donations" WHERE "donations"."campaign_id" = ?[0m  [["campaign_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT SUM("donations"."amount") FROM "donations" WHERE "donations"."campaign_id" = ?  [["campaign_id", 1]]
+  [1m[36mUser Load (3.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mComment Exists (3.2ms)[0m  [1mSELECT  1 AS one FROM "comments" WHERE "comments"."campaign_id" = ? LIMIT 1[0m  [["campaign_id", 1]]
+  [1m[35mComment Load (3.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."campaign_id" = ?  [["campaign_id", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered comments/_comment.html.erb (1.8ms)
+  Rendered campaigns/_campaign_comments.html.erb (90.2ms)
+  [1m[35mDonation Exists (2.8ms)[0m  SELECT  1 AS one FROM "donations" WHERE "donations"."campaign_id" = ? LIMIT 1  [["campaign_id", 1]]
+  [1m[36mDonation Load (5.2ms)[0m  [1mSELECT "donations".* FROM "donations" WHERE "donations"."campaign_id" = ?[0m  [["campaign_id", 1]]
+  Rendered donations/_donation.html.erb (1.0ms)
+  Rendered campaigns/_campaign_donations.html.erb (97.6ms)
+  Rendered campaigns/show.html.erb within layouts/application (454.7ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+Completed 200 OK in 762ms (Views: 620.5ms | ActiveRecord: 36.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 10.0.2.2 at 2016-12-20 01:21:25 +0000
+
+
+Started GET "/assets/font-awesome.css?body=1" for 10.0.2.2 at 2016-12-20 01:21:25 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 10.0.2.2 at 2016-12-20 01:21:25 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.0.2.2 at 2016-12-20 01:21:25 +0000
+
+
+Started GET "/assets/bootstrap.js?body=1" for 10.0.2.2 at 2016-12-20 01:21:25 +0000
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 10.0.2.2 at 2016-12-20 01:21:26 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 10.0.2.2 at 2016-12-20 01:21:26 +0000
+
+
+Started GET "/assets/application.js?body=1" for 10.0.2.2 at 2016-12-20 01:21:26 +0000
+
+
+Started GET "/campaigns/1/donations/new" for 10.0.2.2 at 2016-12-20 01:21:28 +0000
+Processing by DonationsController#new as HTML
+  Parameters: {"campaign_id"=>"1"}
+  [1m[36mUser Load (3.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCampaign Load (3.7ms)[0m  SELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered shared/_errors.html.erb (14.9ms)
+  Rendered donations/_form.html.erb (35.2ms)
+  Rendered donations/new.html.erb within layouts/application (171.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+Completed 200 OK in 366ms (Views: 353.5ms | ActiveRecord: 6.8ms)
+
+
+Started POST "/campaigns/1/donations" for 10.0.2.2 at 2016-12-20 01:21:30 +0000
+Processing by DonationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ECeYOvQOvd1uOwwp6zsvMa/WZVpEkksn+eHloLKQd29jVpCB6GJiPV0kk9DhQUoFXl/L+wDiRIDP+aOGqZwFRg==", "donation"=>{"author"=>"", "message"=>"", "amount"=>""}, "button"=>"", "campaign_id"=>"1"}
+  [1m[35mUser Load (5.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCampaign Load (3.5ms)[0m  [1mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (11.4ms)[0m  [1mINSERT INTO "donations" ("author", "message", "campaign_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["author", ""], ["message", ""], ["campaign_id", 1], ["created_at", "2016-12-20 01:21:30.760592"], ["updated_at", "2016-12-20 01:21:30.760592"]]
+  [1m[35m (9.3ms)[0m  commit transaction
+DEPRECATION WARNING: `#deliver` is deprecated and will be removed in Rails 5. Use `#deliver_now` to deliver immediately or `#deliver_later` to deliver through Active Job. (called from create at /vagrant/eu_proyecto-donaciones/app/controllers/donations_controller.rb:14)
+  Rendered user_mailer/new_donation_notification.html.erb (0.9ms)
+
+UserMailer#new_donation_notification: processed outbound mail in 1050.1ms
+
+Sent mail to kchinchillahn@hotmail.com (5227.4ms)
+Date: Tue, 20 Dec 2016 01:21:31 +0000
+From: makeithappenhn@hotmail.com
+To: kchinchillahn@hotmail.com
+Message-ID: <5858879be5f80_51e35d82818282c1@precise32.mail>
+Subject: =?UTF-8?Q?Han_efectuado_una_donacion_en_tu_campa=C3=B1a?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content=3D'text/html; charset=3DUTF-8' http-equiv=3D'Content-Ty=
+pe' />
+  </head>
+  <body>
+    <h1>Hola Kevin Chinchilla</h1>
+    <hr>
+    <h2>Se ha efectuado una nueva donacion en tu Campa=C3=B1a: Escoba 300=
+0 </h2>
+    =
+
+    <p> <b>ID de la Donacion: </b> 11</p> =
+
+    <p> <b>Autor: </b> </p> =
+
+    <p> <b>Comentario: </b> </p> =
+
+
+    <hr>
+    <p>Eso es todo por ahora, Que tengas un excelente dia</p>
+  </body>
+</html>=
+
+Redirected to http://localhost:3000/campaigns/1
+Completed 302 Found in 6405ms (ActiveRecord: 29.5ms)
+
+
+Started GET "/campaigns/1" for 10.0.2.2 at 2016-12-20 01:21:37 +0000
+Processing by CampaignsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (3.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCampaign Load (3.5ms)[0m  SELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (2.2ms)[0m  [1mSELECT SUM("donations"."amount") FROM "donations" WHERE "donations"."campaign_id" = ?[0m  [["campaign_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT SUM("donations"."amount") FROM "donations" WHERE "donations"."campaign_id" = ?  [["campaign_id", 1]]
+  [1m[36mUser Load (2.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mComment Exists (1.9ms)[0m  [1mSELECT  1 AS one FROM "comments" WHERE "comments"."campaign_id" = ? LIMIT 1[0m  [["campaign_id", 1]]
+  [1m[35mComment Load (3.7ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."campaign_id" = ?  [["campaign_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered comments/_comment.html.erb (1.2ms)
+  Rendered campaigns/_campaign_comments.html.erb (52.4ms)
+  [1m[35mDonation Exists (2.4ms)[0m  SELECT  1 AS one FROM "donations" WHERE "donations"."campaign_id" = ? LIMIT 1  [["campaign_id", 1]]
+  [1m[36mDonation Load (2.5ms)[0m  [1mSELECT "donations".* FROM "donations" WHERE "donations"."campaign_id" = ?[0m  [["campaign_id", 1]]
+  Rendered donations/_donation.html.erb (0.9ms)
+  Rendered campaigns/_campaign_donations.html.erb (52.2ms)
+  Rendered campaigns/show.html.erb within layouts/application (201.1ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+Completed 200 OK in 386ms (Views: 360.0ms | ActiveRecord: 22.3ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.0.2.2 at 2016-12-20 01:21:37 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 10.0.2.2 at 2016-12-20 01:21:37 +0000
+
+
+Started GET "/assets/bootstrap.js?body=1" for 10.0.2.2 at 2016-12-20 01:21:38 +0000
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 10.0.2.2 at 2016-12-20 01:21:38 +0000
+
+
+Started GET "/assets/font-awesome.css?body=1" for 10.0.2.2 at 2016-12-20 01:21:38 +0000
+
+
+Started GET "/assets/application.css?body=1" for 10.0.2.2 at 2016-12-20 01:21:38 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 10.0.2.2 at 2016-12-20 01:21:38 +0000
+
+
+Started GET "/assets/application.js?body=1" for 10.0.2.2 at 2016-12-20 01:21:38 +0000
+
+
+Started GET "/campaigns/1" for 10.0.2.2 at 2016-12-20 01:21:59 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (2.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CampaignsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (2.9ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCampaign Load (2.5ms)[0m  [1mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (3.0ms)[0m  SELECT SUM("donations"."amount") FROM "donations" WHERE "donations"."campaign_id" = ?  [["campaign_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT SUM("donations"."amount") FROM "donations" WHERE "donations"."campaign_id" = ?[0m  [["campaign_id", 1]]
+  [1m[35mUser Load (2.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mComment Exists (2.6ms)[0m  SELECT  1 AS one FROM "comments" WHERE "comments"."campaign_id" = ? LIMIT 1  [["campaign_id", 1]]
+  [1m[36mComment Load (4.6ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."campaign_id" = ?[0m  [["campaign_id", 1]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered comments/_comment.html.erb (6.9ms)
+  Rendered campaigns/_campaign_comments.html.erb (121.2ms)
+  [1m[36mDonation Exists (3.8ms)[0m  [1mSELECT  1 AS one FROM "donations" WHERE "donations"."campaign_id" = ? LIMIT 1[0m  [["campaign_id", 1]]
+  [1m[35mDonation Load (2.3ms)[0m  SELECT "donations".* FROM "donations" WHERE "donations"."campaign_id" = ?  [["campaign_id", 1]]
+  Rendered donations/_donation.html.erb (2.3ms)
+  Rendered campaigns/_campaign_donations.html.erb (78.5ms)
+  Rendered campaigns/show.html.erb within layouts/application (524.4ms)
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+Completed 200 OK in 1314ms (Views: 1030.7ms | ActiveRecord: 30.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 10.0.2.2 at 2016-12-20 01:22:02 +0000
+
+
+Started GET "/assets/font-awesome.css?body=1" for 10.0.2.2 at 2016-12-20 01:22:02 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 10.0.2.2 at 2016-12-20 01:22:02 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 10.0.2.2 at 2016-12-20 01:22:02 +0000
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 10.0.2.2 at 2016-12-20 01:22:02 +0000
+
+
+Started GET "/assets/bootstrap.js?body=1" for 10.0.2.2 at 2016-12-20 01:22:03 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.0.2.2 at 2016-12-20 01:22:03 +0000
+
+
+Started GET "/assets/application.js?body=1" for 10.0.2.2 at 2016-12-20 01:22:03 +0000
+
+
+Started GET "/campaigns/1/donations/new" for 10.0.2.2 at 2016-12-20 01:22:06 +0000
+Processing by DonationsController#new as HTML
+  Parameters: {"campaign_id"=>"1"}
+  [1m[35mUser Load (4.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCampaign Load (3.5ms)[0m  [1mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered shared/_errors.html.erb (12.0ms)
+  Rendered donations/_form.html.erb (77.0ms)
+  Rendered donations/new.html.erb within layouts/application (198.9ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+Completed 200 OK in 377ms (Views: 363.9ms | ActiveRecord: 7.8ms)
+
+
+Started POST "/campaigns/1/donations" for 10.0.2.2 at 2016-12-20 01:22:09 +0000
+Processing by DonationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tHfIX4TGCxUHeGj52pSkAIL0y1Nm0y9unOfZGWBxFWbHBsDkmKrU9TRn9wDQ7sE0c31l8iKjIMmq/58/e31nTw==", "donation"=>{"author"=>"", "message"=>"", "amount"=>""}, "button"=>"", "campaign_id"=>"1"}
+  [1m[36mUser Load (3.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCampaign Load (3.2ms)[0m  SELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (10.6ms)[0m  INSERT INTO "donations" ("author", "message", "campaign_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["author", ""], ["message", ""], ["campaign_id", 1], ["created_at", "2016-12-20 01:22:09.320825"], ["updated_at", "2016-12-20 01:22:09.320825"]]
+  [1m[36m (5.0ms)[0m  [1mcommit transaction[0m
+DEPRECATION WARNING: `#deliver` is deprecated and will be removed in Rails 5. Use `#deliver_now` to deliver immediately or `#deliver_later` to deliver through Active Job. (called from create at /vagrant/eu_proyecto-donaciones/app/controllers/donations_controller.rb:14)
+  Rendered user_mailer/new_donation_notification.html.erb (0.9ms)
+
+UserMailer#new_donation_notification: processed outbound mail in 902.9ms
+
+Sent mail to kchinchillahn@hotmail.com (2008.6ms)
+Date: Tue, 20 Dec 2016 01:22:10 +0000
+From: makeithappenhn@hotmail.com
+To: kchinchillahn@hotmail.com
+Message-ID: <585887c255c8a_522d4885d707389f@precise32.mail>
+Subject: =?UTF-8?Q?Han_efectuado_una_donacion_en_tu_campa=C3=B1a?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content=3D'text/html; charset=3DUTF-8' http-equiv=3D'Content-Ty=
+pe' />
+  </head>
+  <body>
+    <h1>Hola Kevin Chinchilla</h1>
+    <hr>
+    <h2>Se ha efectuado una nueva donacion en tu Campa=C3=B1a: Escoba 300=
+0 </h2>
+    =
+
+    <p> <b>ID de la Donacion: </b> 12</p> =
+
+    <p> <b>Autor: </b> </p> =
+
+    <p> <b>Comentario: </b> </p> =
+
+
+    <hr>
+    <p>Eso es todo por ahora, Que tengas un excelente dia</p>
+  </body>
+</html>=
+
+Redirected to http://localhost:3000/campaigns/1
+Completed 302 Found in 3028ms (ActiveRecord: 22.2ms)
+
+
+Started GET "/campaigns/1" for 10.0.2.2 at 2016-12-20 01:22:12 +0000
+Processing by CampaignsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (3.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCampaign Load (2.9ms)[0m  [1mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (2.5ms)[0m  SELECT SUM("donations"."amount") FROM "donations" WHERE "donations"."campaign_id" = ?  [["campaign_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT SUM("donations"."amount") FROM "donations" WHERE "donations"."campaign_id" = ?[0m  [["campaign_id", 1]]
+  [1m[35mUser Load (2.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mComment Exists (2.5ms)[0m  SELECT  1 AS one FROM "comments" WHERE "comments"."campaign_id" = ? LIMIT 1  [["campaign_id", 1]]
+  [1m[36mComment Load (2.4ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."campaign_id" = ?[0m  [["campaign_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered comments/_comment.html.erb (1.4ms)
+  Rendered campaigns/_campaign_comments.html.erb (56.8ms)
+  [1m[36mDonation Exists (2.6ms)[0m  [1mSELECT  1 AS one FROM "donations" WHERE "donations"."campaign_id" = ? LIMIT 1[0m  [["campaign_id", 1]]
+  [1m[35mDonation Load (2.7ms)[0m  SELECT "donations".* FROM "donations" WHERE "donations"."campaign_id" = ?  [["campaign_id", 1]]
+  Rendered donations/_donation.html.erb (0.9ms)
+  Rendered campaigns/_campaign_donations.html.erb (56.5ms)
+  Rendered campaigns/show.html.erb within layouts/application (223.6ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+Completed 200 OK in 404ms (Views: 378.4ms | ActiveRecord: 21.4ms)
+
+
+Started GET "/assets/font-awesome.css?body=1" for 10.0.2.2 at 2016-12-20 01:22:13 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 10.0.2.2 at 2016-12-20 01:22:13 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.0.2.2 at 2016-12-20 01:22:13 +0000
+
+
+Started GET "/assets/bootstrap.js?body=1" for 10.0.2.2 at 2016-12-20 01:22:13 +0000
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 10.0.2.2 at 2016-12-20 01:22:13 +0000
+
+
+Started GET "/assets/application.css?body=1" for 10.0.2.2 at 2016-12-20 01:22:13 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 10.0.2.2 at 2016-12-20 01:22:13 +0000
+
+
+Started GET "/assets/application.js?body=1" for 10.0.2.2 at 2016-12-20 01:22:13 +0000
+
+
+Started GET "/campaigns/1" for 10.0.2.2 at 2016-12-20 01:22:54 +0000
+Processing by CampaignsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (3.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCampaign Load (2.1ms)[0m  [1mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (2.5ms)[0m  SELECT SUM("donations"."amount") FROM "donations" WHERE "donations"."campaign_id" = ?  [["campaign_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT SUM("donations"."amount") FROM "donations" WHERE "donations"."campaign_id" = ?[0m  [["campaign_id", 1]]
+  [1m[35mUser Load (3.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mComment Exists (5.0ms)[0m  SELECT  1 AS one FROM "comments" WHERE "comments"."campaign_id" = ? LIMIT 1  [["campaign_id", 1]]
+  [1m[36mComment Load (2.2ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."campaign_id" = ?[0m  [["campaign_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered comments/_comment.html.erb (1.3ms)
+  Rendered campaigns/_campaign_comments.html.erb (78.9ms)
+  [1m[36mDonation Exists (2.6ms)[0m  [1mSELECT  1 AS one FROM "donations" WHERE "donations"."campaign_id" = ? LIMIT 1[0m  [["campaign_id", 1]]
+  [1m[35mDonation Load (4.2ms)[0m  SELECT "donations".* FROM "donations" WHERE "donations"."campaign_id" = ?  [["campaign_id", 1]]
+  Rendered donations/_donation.html.erb (2.7ms)
+  Rendered campaigns/_campaign_donations.html.erb (97.1ms)
+  Rendered campaigns/show.html.erb within layouts/application (401.3ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+Completed 200 OK in 686ms (Views: 544.6ms | ActiveRecord: 32.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 10.0.2.2 at 2016-12-20 01:22:55 +0000
+
+
+Started GET "/assets/font-awesome.css?body=1" for 10.0.2.2 at 2016-12-20 01:22:56 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 10.0.2.2 at 2016-12-20 01:22:56 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 10.0.2.2 at 2016-12-20 01:22:56 +0000
+
+
+Started GET "/assets/bootstrap.js?body=1" for 10.0.2.2 at 2016-12-20 01:22:56 +0000
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 10.0.2.2 at 2016-12-20 01:22:56 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.0.2.2 at 2016-12-20 01:22:57 +0000
+
+
+Started GET "/assets/application.js?body=1" for 10.0.2.2 at 2016-12-20 01:22:57 +0000
+
+
+Started GET "/campaigns/1/donations/new" for 10.0.2.2 at 2016-12-20 01:22:58 +0000
+Processing by DonationsController#new as HTML
+  Parameters: {"campaign_id"=>"1"}
+  [1m[35mUser Load (2.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCampaign Load (3.8ms)[0m  [1mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered shared/_errors.html.erb (0.2ms)
+  Rendered donations/_form.html.erb (1.5ms)
+  Rendered donations/new.html.erb within layouts/application (79.6ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+Completed 200 OK in 225ms (Views: 213.4ms | ActiveRecord: 6.1ms)
+
+
+Started POST "/campaigns/1/donations" for 10.0.2.2 at 2016-12-20 01:22:59 +0000
+Processing by DonationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"G0nHUQqlFgDCHHy1NE1s+WNG8Qo2AH+3fEOYwzlI4iFoOM/qFsnJ4PED40w+NwnNks9fq3JwcBBKW97lIkSQCA==", "donation"=>{"author"=>"", "message"=>"", "amount"=>""}, "button"=>"", "campaign_id"=>"1"}
+  [1m[36mUser Load (4.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCampaign Load (3.0ms)[0m  SELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  rollback transaction
+  Rendered shared/_errors.html.erb (0.6ms)
+  Rendered donations/_form.html.erb (1.1ms)
+  Rendered donations/new.html.erb within layouts/application (91.0ms)
+  [1m[36mUser Load (3.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+Completed 200 OK in 262ms (Views: 228.7ms | ActiveRecord: 11.8ms)
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 10.0.2.2 at 2016-12-20 01:23:00 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 10.0.2.2 at 2016-12-20 01:23:00 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.0.2.2 at 2016-12-20 01:23:00 +0000
+
+
+Started GET "/assets/font-awesome.css?body=1" for 10.0.2.2 at 2016-12-20 01:23:00 +0000
+
+
+Started GET "/assets/bootstrap.js?body=1" for 10.0.2.2 at 2016-12-20 01:23:01 +0000
+
+
+Started GET "/assets/application.css?body=1" for 10.0.2.2 at 2016-12-20 01:23:01 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 10.0.2.2 at 2016-12-20 01:23:01 +0000
+
+
+Started GET "/assets/application.js?body=1" for 10.0.2.2 at 2016-12-20 01:23:01 +0000
+
+
+Started GET "/campaigns/1" for 10.0.2.2 at 2016-12-20 01:23:03 +0000
+Processing by CampaignsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (3.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCampaign Load (2.8ms)[0m  [1mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (3.1ms)[0m  SELECT SUM("donations"."amount") FROM "donations" WHERE "donations"."campaign_id" = ?  [["campaign_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT SUM("donations"."amount") FROM "donations" WHERE "donations"."campaign_id" = ?[0m  [["campaign_id", 1]]
+  [1m[35mUser Load (3.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mComment Exists (2.6ms)[0m  SELECT  1 AS one FROM "comments" WHERE "comments"."campaign_id" = ? LIMIT 1  [["campaign_id", 1]]
+  [1m[36mComment Load (3.9ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."campaign_id" = ?[0m  [["campaign_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered comments/_comment.html.erb (1.5ms)
+  Rendered campaigns/_campaign_comments.html.erb (56.4ms)
+  [1m[36mDonation Exists (2.6ms)[0m  [1mSELECT  1 AS one FROM "donations" WHERE "donations"."campaign_id" = ? LIMIT 1[0m  [["campaign_id", 1]]
+  [1m[35mDonation Load (3.0ms)[0m  SELECT "donations".* FROM "donations" WHERE "donations"."campaign_id" = ?  [["campaign_id", 1]]
+  Rendered donations/_donation.html.erb (0.8ms)
+  Rendered campaigns/_campaign_donations.html.erb (52.6ms)
+  Rendered campaigns/show.html.erb within layouts/application (221.7ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+Completed 200 OK in 421ms (Views: 392.5ms | ActiveRecord: 24.8ms)
+
+
+Started GET "/" for 10.0.2.2 at 2016-12-20 01:23:12 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (41.3ms)
+  [1m[35mUser Load (2.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+Completed 200 OK in 193ms (Views: 189.7ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/assets/INDEX_Carousel_4.jpg" for 10.0.2.2 at 2016-12-20 01:23:12 +0000
+
+
+Started GET "/assets/INDEX_Carousel_1.jpg" for 10.0.2.2 at 2016-12-20 01:23:13 +0000
+
+
+Started GET "/assets/INDEX_Carousel_2.jpg" for 10.0.2.2 at 2016-12-20 01:23:13 +0000
+
+
+Started GET "/category/medicas" for 10.0.2.2 at 2016-12-20 01:26:49 +0000
+Processing by CampaignsController#category_1 as HTML
+  [1m[36mCampaign Load (2.9ms)[0m  [1mSELECT "campaigns".* FROM "campaigns" WHERE "campaigns"."category" = ?[0m  [["category", "Medica"]]
+  [1m[35m (1.9ms)[0m  SELECT SUM("donations"."amount") FROM "donations" WHERE "donations"."campaign_id" = ?  [["campaign_id", 3]]
+  [1m[36mUser Load (1.9ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered campaigns/_campaign.html.erb (8.1ms)
+  Rendered campaigns/category_1.html.erb within layouts/application (73.2ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+Completed 200 OK in 246ms (Views: 237.4ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/assets/CAMPAIGNS_Medical.jpg" for 10.0.2.2 at 2016-12-20 01:26:50 +0000
+
+
+Started GET "/category/negocios" for 10.0.2.2 at 2016-12-20 01:26:52 +0000
+Processing by CampaignsController#category_4 as HTML
+  [1m[36mUser Load (2.8ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCampaign Load (3.0ms)[0m  SELECT "campaigns".* FROM "campaigns" WHERE "campaigns"."category" = ?  [["category", "Negocios"]]
+  [1m[36m (3.0ms)[0m  [1mSELECT SUM("donations"."amount") FROM "donations" WHERE "donations"."campaign_id" = ?[0m  [["campaign_id", 1]]
+  [1m[35mUser Load (2.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (2.5ms)[0m  [1mSELECT SUM("donations"."amount") FROM "donations" WHERE "donations"."campaign_id" = ?[0m  [["campaign_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered campaigns/_campaign.html.erb (18.0ms)
+  Rendered campaigns/category_4.html.erb within layouts/application (88.5ms)
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+Completed 200 OK in 264ms (Views: 248.0ms | ActiveRecord: 14.2ms)
+
+
+Started GET "/assets/CAMPAIGNS_Bussines.jpg" for 10.0.2.2 at 2016-12-20 01:26:53 +0000
+
+
+Started DELETE "/logout" for 10.0.2.2 at 2016-12-20 01:33:15 +0000
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"nNO3XH1dZKeAioIxKYApeu7yKhp8lI5qcmDB+vEmngfvor/nYTG7R7OVHcgj+kxOH3uEuzjkgc1EeIfc6irsLg=="}
+  [1m[35mUser Load (2.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/" for 10.0.2.2 at 2016-12-20 01:33:15 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 120ms (Views: 119.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/font-awesome.css?body=1" for 10.0.2.2 at 2016-12-20 01:33:15 +0000
+
+
+Started GET "/assets/application.css?body=1" for 10.0.2.2 at 2016-12-20 01:33:16 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 10.0.2.2 at 2016-12-20 01:33:16 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.0.2.2 at 2016-12-20 01:33:16 +0000
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 10.0.2.2 at 2016-12-20 01:33:16 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 10.0.2.2 at 2016-12-20 01:33:16 +0000
+
+
+Started GET "/assets/application.js?body=1" for 10.0.2.2 at 2016-12-20 01:33:16 +0000
+
+
+Started GET "/assets/bootstrap.js?body=1" for 10.0.2.2 at 2016-12-20 01:33:16 +0000
+
+
+Started GET "/assets/INDEX_Carousel_4.jpg" for 10.0.2.2 at 2016-12-20 01:33:16 +0000
+
+
+Started GET "/assets/INDEX_Carousel_1.jpg" for 10.0.2.2 at 2016-12-20 01:33:16 +0000
+
+
+Started GET "/assets/INDEX_Carousel_2.jpg" for 10.0.2.2 at 2016-12-20 01:33:16 +0000
+
+
+Started GET "/" for 10.0.2.2 at 2016-12-20 01:33:22 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 122ms (Views: 121.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/campaigns" for 10.0.2.2 at 2016-12-20 01:33:28 +0000
+Processing by CampaignsController#index as HTML
+  [1m[36mCampaign Load (1.4ms)[0m  [1mSELECT "campaigns".* FROM "campaigns"  ORDER BY "campaigns"."created_at" ASC[0m
+  [1m[35m (1.4ms)[0m  SELECT SUM("donations"."amount") FROM "donations" WHERE "donations"."campaign_id" = ?  [["campaign_id", 1]]
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (1.8ms)[0m  SELECT SUM("donations"."amount") FROM "donations" WHERE "donations"."campaign_id" = ?  [["campaign_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (2.4ms)[0m  SELECT SUM("donations"."amount") FROM "donations" WHERE "donations"."campaign_id" = ?  [["campaign_id", 3]]
+  [1m[36mUser Load (1.9ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered campaigns/_campaign.html.erb (17.0ms)
+  Rendered campaigns/index.html.erb within layouts/application (43.4ms)
+Completed 200 OK in 127ms (Views: 116.3ms | ActiveRecord: 10.4ms)
+
+
+Started GET "/" for 10.0.2.2 at 2016-12-20 01:33:30 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 108ms (Views: 107.9ms | ActiveRecord: 0.0ms)
