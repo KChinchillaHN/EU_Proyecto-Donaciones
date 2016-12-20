@@ -1,5 +1,5 @@
 class CampaignsController < ApplicationController
-  skip_before_action :authenticate, only: [:index]
+  skip_before_action :authenticate, only: [:index, :category_1]
   def index
   	#@campaigns = Campaign.where(:goal <= Campaign.sum_of_donations).order("created_on DESC")
   	 @campaigns = Campaign.order(:created_at)
@@ -40,23 +40,23 @@ class CampaignsController < ApplicationController
   end
 
   def category_1
-  	@campaigns = Campaign.order(:created_at)
+  	@campaigns = Campaign.where(category: 'Medica')
   end
 
   def category_2
-  	@campaigns = Campaign.order(:created_at)	
+  	@campaigns = Campaign.where(category: 'Deportes')	
   end
 
   def category_3
-  	@campaigns = Campaign.order(:created_at)
+  	@campaigns = Campaign.where(category: 'Animales')  
   end
 
   def category_4
-  	@campaigns = Campaign.order(:created_at)
+  	@campaigns = Campaign.where(category: 'Negocios')  
   end
 
   def category_5
-  	@campaigns = Campaign.order(:created_at)
+  	@campaigns = Campaign.where(category: 'Caridad')  
   end
 
   protected
